@@ -23,17 +23,16 @@ class Solution:
             sec_inner_list = []
             sec_inner_list = [strs[pos] for pos in lst]
             mapped_words.append(sec_inner_list)
+        print(mapped_words)
 
-        filtered_words = []
-        for i in range(len(mapped_words)):
-            is_subset = False
+        for i in range(len(mapped_words) - 1, -1, -1):  # Iterate backwards
             for j in range(len(mapped_words)):
-                if i != j and set(mapped_words[i]).issubset(set(mapped_words[j])):
-                    is_subset = True
-                    break
-            if not is_subset:
-                filtered_words.append(mapped_words[i])
+                if set(mapped_words[i]).issubset(set(mapped_words[j])) and (len(mapped_words[i]) < len(mapped_words[j])):
+                    mapped_words.pop(i)
+                    break 
+        
+        return mapped_words
 
+        
 
-        return filtered_words
-    
+        
