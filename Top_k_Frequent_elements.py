@@ -7,13 +7,11 @@ class Solution:
             else:
                 val_counts[num] = 1
 
-        sorted_counts = sorted(val_counts.items(), key = lambda x: x[1])
+        sorted_counts = sorted(val_counts.items(), key = lambda x: x[1], reverse = True)
         sorted_counts = sorted_counts[:k]
 
         final_list = []
         for element in sorted_counts:
-            final_list.append(element[1])
+            final_list.append(element[0])
 
         return final_list
-
-
