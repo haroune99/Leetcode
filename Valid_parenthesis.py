@@ -10,6 +10,8 @@ class Solution:
         closed_dic = 0
         if len(s)%2 !=0:
             return False
+	elif '[)' in s:
+            return False
         else:
             while len(s)>0:
                 match s[-1]:
